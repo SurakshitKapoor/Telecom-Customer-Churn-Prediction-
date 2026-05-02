@@ -1,34 +1,30 @@
 
 from fastapi import FastAPI
 from app.schemas import ChurnRequest
-from app.predict import predict_churn
 from app.model_loader import load_model
+from app.predict import predict_churn
+from app.core.logger import logger
+from app.errors import raise_invalid_input
 
+app = FastAPI()
 
-app = FastAPI(
-    title="Telecom Churn Prediction API",
-    description="Predict customer churn and enable retention campaigns",
-    version="1.0.0"
-)
+model = load_model()
 
 @app.get("/")
-def root():
-    return {"message": "Welcome to Churn Prediction API"}
-
-@app.get("/health")
-def health():
-    return {"status": "ok"}
-
-
-# gtting the model
-model = load_model()
+def home():
+    return {"message": "Churn API running"}
 
 @app.post("/predict")
 def predict(data: ChurnRequest):
-    result = predict_churn(model, data)
-    return {"prediction": result}
+    try:
+        logger.info(f"Input received: {data.model_dump()}")  # ✅ log input
+        
+        result = predict_churn(model, data)
+        return {"prediction": result}
 
-
+    except Exception:
+        logger.warning("Invalid input received")
+        raise_invalid_input()
 
 
 if __name__ == "__main__":
