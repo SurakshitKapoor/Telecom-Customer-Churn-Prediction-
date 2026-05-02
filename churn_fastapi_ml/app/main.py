@@ -1,8 +1,8 @@
 
 from fastapi import FastAPI
-from app.schemas import ChurnRequest
+from app.schemas import ChurnRequest, BatchChurnRequest
 from app.model_loader import load_model
-from app.predict import predict_churn
+from app.predict import predict_churn, predict_batch
 from app.core.logger import logger
 from app.errors import raise_invalid_input
 
@@ -25,6 +25,20 @@ def predict(data: ChurnRequest):
     except Exception:
         logger.warning("Invalid input received")
         raise_invalid_input()
+
+
+
+# 🔹 Batch prediction ⭐
+@app.post("/predict-batch")
+def predict_batch_api(data: BatchChurnRequest):
+    try:
+        results = predict_batch(model, data.inputs)
+        return {"predictions": results}
+
+    except Exception:
+        raise_invalid_input()
+
+
 
 
 if __name__ == "__main__":

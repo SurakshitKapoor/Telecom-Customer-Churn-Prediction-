@@ -1,7 +1,9 @@
 
 
 from pydantic import BaseModel
+from typing import List
 
+# for ingle inputs
 class ChurnRequest(BaseModel):
     Gender: str
     SeniorCitizen: int          # 0 or 1
@@ -22,3 +24,8 @@ class ChurnRequest(BaseModel):
     PaymentMethod: str
     MonthlyCharges: float
     TotalCharges: float
+
+
+# for multiple inputs
+class BatchChurnRequest(BaseModel):
+    inputs: List[ChurnRequest]

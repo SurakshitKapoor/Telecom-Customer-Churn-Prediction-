@@ -28,3 +28,18 @@ def predict_churn(model, data):
         logger.error(f"Prediction error: {str(e)}")
         raise_model_error()
 
+
+
+# predict for multiple inputs
+def predict_batch(model, data_list):
+    try:
+        df = pd.DataFrame([item.model_dump() for item in data_list])
+
+        predictions = model.predict(df).tolist()
+
+        logger.info(f"Batch Prediction: {predictions}")
+        return predictions
+
+    except Exception as e:
+        logger.error(f"Batch prediction error: {str(e)}")
+        raise_model_error()
