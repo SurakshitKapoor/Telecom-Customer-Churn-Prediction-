@@ -1,0 +1,15 @@
+
+
+numpy 
+pandas
+matplotlib
+
+scikit-learn
+imblearn
+joblib
+
+uvicorn
+fastapi
+
+pydantic-settings
+

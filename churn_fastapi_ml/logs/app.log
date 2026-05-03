@@ -1,0 +1,12 @@
+2026-05-02 22:58:00,298 - INFO - Input received: {'Gender': 'Male', 'SeniorCitizen': 0, 'Partner': 'Yes', 'Dependents': 'No', 'Tenure': 12, 'PhoneService': 'Yes', 'MultipleLines': 'No', 'InternetService': 'Fiber optic', 'OnlineSecurity': 'No', 'OnlineBackup': 'Yes', 'DeviceProtection': 'No', 'TechSupport': 'No', 'StreamingTV': 'Yes', 'StreamingMovies': 'No', 'Contract': 'Monthly', 'PaperlessBilling': 'Yes', 'PaymentMethod': 'Manual', 'MonthlyCharges': 70.35, 'TotalCharges': 845.5}
+2026-05-02 22:58:00,298 - INFO - Making pydantic data into dataframe
+2026-05-02 22:58:00,395 - INFO - running the model for prediction!
+2026-05-02 22:58:00,521 - INFO - Prediction made: 1 | Input: Gender='Male' SeniorCitizen=0 Partner='Yes' Dependents='No' Tenure=12 PhoneService='Yes' MultipleLines='No' InternetService='Fiber optic' OnlineSecurity='No' OnlineBackup='Yes' DeviceProtection='No' TechSupport='No' StreamingTV='Yes' StreamingMovies='No' Contract='Monthly' PaperlessBilling='Yes' PaymentMethod='Manual' MonthlyCharges=70.35 TotalCharges=845.5
+2026-05-02 23:29:38,900 - ERROR - Batch prediction error: Found unknown categories ['Month-to-month'] in column 12 during transform
+2026-05-02 23:30:33,221 - INFO - Batch Prediction: [1, 0]
+2026-05-02 23:33:17,743 - INFO - Batch Prediction: [1, 0]
+2026-05-03 00:09:19,666 - INFO - Batch Prediction: [1, 0]
+2026-05-03 13:26:31,481 - INFO - Batch Prediction: [1, 0]
+2026-05-03 13:29:29,354 - INFO - Batch Prediction: [1, 0]
+2026-05-03 13:31:59,078 - INFO - Batch Prediction: [1, 0]
+2026-05-03 13:32:29,572 - INFO - Batch Prediction: [0, 0]
