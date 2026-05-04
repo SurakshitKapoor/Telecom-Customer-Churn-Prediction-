@@ -13,3 +13,5 @@ fastapi
 
 pydantic-settings
 
+requests
+streamlit
